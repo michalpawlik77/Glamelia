@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pracownia Florystyczna Glamelia · Dekoracje kwiatowe · Rogoźnik, Śląsk</title>
+<meta name="description" content="Pracownia Florystyczna Glamelia — Izabela Masłoń. Florystyka ślubna, komunijna, okolicznościowa i funeralna, dekoracje balonowe oraz wypożyczalnia dekoracji. Rogoźnik, Śląsk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1d231c;          /* deep forest-graphite */
+    --bg-deep:#171c16;     /* darkest section */
+    --bg-card:#272e24;     /* raised card on dark */
+    --ink:#f1ede3;         /* warm cream text */
+    --ink-soft:#b9b9a8;    /* muted cream */
+    --sage:#9aab84;        /* sage highlight */
+    --sage-deep:#7d8c6b;
+    --blush:#cba6a0;       /* dusty blush accent */
+    --gold:#c5a86b;        /* antique gold */
+    --gold-bright:#e7d7b5; /* light gold for headings */
+    --line:rgba(255,255,255,.12);
+    --white:#fffefb;
+    --shadow:0 22px 60px -22px rgba(0,0,0,.6);
+    --ink-dark:#1d231c;    /* dark text for light surfaces (buttons) */
+    --r:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:72px}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:400;line-height:1.1;letter-spacing:-.01em}
+  em{font-style:italic;color:var(--sage)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  section{padding:clamp(4.5rem,9vw,8.5rem) 0}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--sage);font-weight:500;display:inline-block;margin-bottom:1.2rem;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:26px;height:1px;background:var(--gold);vertical-align:middle;margin-right:.8rem;margin-bottom:.2rem}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.4rem clamp(1.2rem,4vw,3rem);
+    transition:background .4s ease,padding .4s ease,box-shadow .4s ease;
+  }
+  header.nav.scrolled{background:rgba(23,28,22,.9);backdrop-filter:blur(12px);padding:.9rem clamp(1.2rem,4vw,3rem);box-shadow:0 1px 0 var(--line)}
+  .brand{font-family:'Fraunces',serif;font-size:1.35rem;letter-spacing:.02em;color:var(--white);transition:color .4s}
+  .brand span{color:var(--gold)}
+  header.nav.scrolled .brand{color:var(--white)}
+  .brand small{display:block;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;font-weight:400;opacity:.8;margin-top:.15rem}
+  .navlinks{display:flex;gap:2.1rem;align-items:center}
+  .navlinks a{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);transition:color .4s;position:relative}
+  header.nav.scrolled .navlinks a{color:var(--ink-soft)}
+  header.nav.scrolled .navphone{border-color:var(--gold);color:var(--gold-bright)!important}
+  header.nav.scrolled .burger span{background:var(--white)}
+  .navlinks a:not(.navphone)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s}
+  .navlinks a:not(.navphone):hover::after{width:100%}
+  .navphone{border:1px solid currentColor;padding:.5rem 1.1rem;border-radius:40px}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;z-index:70}
+  .burger span{width:26px;height:2px;background:var(--white);transition:.3s}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--white);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(25,30,21,.82) 0%,rgba(35,41,29,.6) 45%,rgba(35,41,29,.3) 100%)}
+  .hero .wrap{padding-top:6rem}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.6rem);max-width:14ch;margin:1rem 0 1.4rem;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+  .hero h1 em{color:#e7d7b5}
+  .hero p.lead{max-width:46ch;font-size:clamp(1rem,1.5vw,1.18rem);font-weight:300;opacity:.95;margin-bottom:2.4rem}
+  .hero .eyebrow{color:#e7d7b5}
+  .hero .eyebrow::before{background:#e7d7b5}
+  .btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2rem;border-radius:42px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:transform .25s,background .25s,color .25s,box-shadow .25s}
+  .btn-solid{background:var(--white);color:var(--ink-dark)}
+  .btn-solid:hover{background:var(--gold);color:var(--ink-dark);transform:translateY(-3px)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.6);color:var(--white)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+  .scrollcue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;opacity:.8;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+  .scrollcue::after{content:"";width:1px;height:42px;background:linear-gradient(var(--white),transparent);animation:cue 2s ease-in-out infinite}
+  @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--bg)}
+  .about .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
+  .about-imgs{position:relative}
+  .about-imgs .big{border-radius:var(--r);box-shadow:var(--shadow);width:100%;aspect-ratio:4/5;object-fit:cover}
+  .about-imgs .small{position:absolute;right:-6%;bottom:-12%;width:48%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);border:8px solid var(--bg);box-shadow:var(--shadow)}
+  .badge{position:absolute;left:-4%;top:8%;background:var(--sage-deep);color:var(--white);width:118px;height:118px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Fraunces',serif;box-shadow:var(--shadow)}
+  .badge b{font-size:1.9rem;line-height:1}
+  .badge small{font-family:'Jost';font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;margin-top:.3rem;font-weight:400}
+  .about h2{font-size:clamp(2rem,3.6vw,3.1rem);margin-bottom:1.4rem}
+  .about p{color:var(--ink-soft);margin-bottom:1.2rem;max-width:52ch}
+  .sig{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;color:var(--gold-bright);margin-top:.4rem}
+  .sig small{display:block;font-family:'Jost';font-style:normal;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:.3rem}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--bg-deep)}
+  .services .head{text-align:center;max-width:60ch;margin:0 auto 3.5rem}
+  .services h2{font-size:clamp(2rem,3.8vw,3.2rem)}
+  .services h2 em{display:block}
+  .scards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .scard{background:var(--bg-card);padding:2.4rem 2rem;border-radius:var(--r);border:1px solid var(--line);transition:transform .35s,box-shadow .35s,border-color .35s;position:relative;overflow:hidden}
+  .scard::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+  .scard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(197,168,107,.4)}
+  .scard:hover::before{transform:scaleX(1)}
+  .scard .num{font-family:'Fraunces',serif;font-size:.9rem;color:var(--gold);letter-spacing:.1em}
+  .scard h3{font-size:1.4rem;margin:.7rem 0 .8rem}
+  .scard p{font-size:.92rem;color:var(--ink-soft)}
+  .scard .ico{font-size:1.7rem;margin-bottom:.4rem;display:block}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{background:var(--bg)}
+  .gallery .head{text-align:center;margin-bottom:2.6rem}
+  .gallery h2{font-size:clamp(2rem,3.8vw,3.2rem)}
+  .filters{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:2.6rem}
+  .filter{background:none;border:1px solid var(--line);color:var(--ink-soft);padding:.6rem 1.3rem;border-radius:40px;font-family:'Jost';font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.3s}
+  .filter:hover{border-color:var(--sage)}
+  .filter.active{background:var(--sage-deep);border-color:var(--sage-deep);color:var(--white)}
+  .grid-gal{columns:3;column-gap:1rem}
+  @media(max-width:900px){.grid-gal{columns:2}}
+  @media(max-width:560px){.grid-gal{columns:1}}
+  .gitem{break-inside:avoid;margin-bottom:1rem;position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;background:var(--bg-deep)}
+  .gitem img{width:100%;transition:transform .6s ease;display:block}
+  .gitem:hover img{transform:scale(1.05)}
+  .gitem .cap{position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(43,49,39,.7));opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:1.1rem;color:var(--white);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+  .gitem:hover .cap{opacity:1}
+  .gitem.hide{display:none}
+  .soon{text-align:center;padding:3rem 1rem;border:1px dashed var(--line);border-radius:var(--r);color:var(--ink-soft);background:var(--bg-card)}
+  .soon h3{font-size:1.5rem;color:var(--gold-bright);margin-bottom:.5rem}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lb{position:fixed;inset:0;background:rgba(26,30,22,.93);z-index:100;display:none;align-items:center;justify-content:center;padding:2rem}
+  .lb.open{display:flex}
+  .lb img{max-width:90vw;max-height:86vh;border-radius:var(--r);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .lb-close,.lb-nav{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;width:48px;height:48px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s}
+  .lb-close:hover,.lb-nav:hover{background:var(--gold);border-color:var(--gold)}
+  .lb-close{top:1.5rem;right:1.5rem}
+  .lb-prev{left:1.5rem;top:50%;transform:translateY(-50%)}
+  .lb-next{right:1.5rem;top:50%;transform:translateY(-50%)}
+  .lb-count{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:.78rem;letter-spacing:.2em}
+
+  /* ---------- CONTACT ---------- */
+  /* ---------- OPINIONS ---------- */
+  .opinions{background:var(--bg-deep)}
+  .opinions .head{text-align:center;margin-bottom:2.2rem}
+  .opinions h2{font-size:clamp(2rem,3.8vw,3.2rem)}
+  .rating{display:flex;align-items:center;justify-content:center;gap:1.1rem;margin-bottom:3rem}
+  .rating-score{font-family:'Fraunces',serif;font-size:3.2rem;color:var(--gold-bright);line-height:1}
+  .stars{color:var(--gold);letter-spacing:.15em;font-size:1.05rem}
+  .rating-sub{font-size:.82rem;color:var(--ink-soft);letter-spacing:.04em;margin-top:.2rem}
+  .ocards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .ocard{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r);padding:2.2rem 2rem 2rem;position:relative;display:flex;flex-direction:column}
+  .ocard .quote{font-family:'Fraunces',serif;font-size:3.5rem;line-height:.5;color:var(--gold);opacity:.4;height:1.4rem}
+  .ocard p{color:var(--ink-soft);font-size:.95rem;margin:.4rem 0 1.4rem;flex:1}
+  .ocard .ostars{color:var(--gold);letter-spacing:.12em;font-size:.9rem;margin-bottom:.9rem}
+  .oauthor{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--ink)}
+  .oauthor small{display:block;font-family:'Jost';font-style:normal;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:.25rem}
+  .oreply{text-align:center;margin-top:2rem;font-style:italic;color:var(--ink-soft);font-family:'Fraunces',serif;font-size:1.05rem}
+  @media(max-width:860px){.ocards{grid-template-columns:1fr}}
+
+  .contact{background:#12160f;color:var(--ink)}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .contact h2{font-size:clamp(2rem,3.8vw,3.2rem);margin-bottom:1.2rem;color:var(--white)}
+  .contact h2 em{color:#e7d7b5}
+  .contact p.intro{color:#c9cbbf;max-width:46ch;margin-bottom:2.4rem}
+  .cinfo{display:flex;flex-direction:column;gap:1.6rem}
+  .crow{display:flex;gap:1.1rem;align-items:flex-start}
+  .crow .ic{flex:0 0 44px;height:44px;border-radius:50%;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+  .crow .lab{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+  .crow a,.crow span{color:var(--ink);font-size:1.02rem}
+  .crow a:hover{color:#e7d7b5}
+  .social{display:flex;gap:.7rem;margin-top:2.4rem;flex-wrap:wrap}
+  .social a{padding:.6rem 1.2rem;border:1px solid rgba(255,255,255,.2);border-radius:40px;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;letter-spacing:.06em;transition:.3s;font-weight:500}
+  .social a:hover{background:var(--gold);border-color:var(--gold);color:var(--ink-dark);transform:translateY(-3px)}
+  .pricing{margin-top:2.4rem;padding:1.4rem 1.6rem;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);font-size:.9rem;color:#c9cbbf}
+  .pricing b{color:#e7d7b5;font-family:'Fraunces',serif;font-size:1.1rem}
+
+  /* ---------- FOOTER ---------- */
+  /* ---------- PRIVACY MODAL ---------- */
+  .pmodal{position:fixed;inset:0;z-index:2000;display:none}
+  .pmodal.open{display:block}
+  .pmodal-overlay{position:absolute;inset:0;background:rgba(8,10,6,.72);backdrop-filter:blur(3px);animation:pfade .3s ease}
+  .pmodal-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(720px,92vw);max-height:88vh;background:var(--bg);border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.5);display:flex;flex-direction:column;animation:pslide .35s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pfade{from{opacity:0}to{opacity:1}}
+  @keyframes pslide{from{opacity:0;transform:translate(-50%,-46%)}to{opacity:1;transform:translate(-50%,-50%)}}
+  .pmodal-close{position:absolute;top:.7rem;right:.9rem;z-index:3;background:var(--bg-card);border:1px solid var(--line);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer;transition:.25s}
+  .pmodal-close:hover{background:var(--gold);color:var(--bg-deep);border-color:var(--gold)}
+  .pmodal-content{overflow-y:auto;padding:2.6rem 2.4rem 2.4rem}
+  .pmodal-content::-webkit-scrollbar{width:8px}
+  .pmodal-content::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+  .p-eyebrow{display:inline-block;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+  .p-title{font-size:1.9rem;margin-bottom:.3rem}
+  .p-updated{color:var(--ink-soft);font-size:.82rem;margin-bottom:1.6rem}
+  .pmodal-content h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.15rem;color:var(--gold-bright);margin:1.6rem 0 .5rem}
+  .pmodal-content p{color:var(--ink-soft);font-size:.92rem;line-height:1.65;margin-bottom:.8rem}
+  .pmodal-content ul{margin:0 0 .9rem 1.1rem;color:var(--ink-soft);font-size:.92rem;line-height:1.6}
+  .pmodal-content li{margin-bottom:.35rem}
+  .pmodal-content strong{color:var(--ink);font-weight:500}
+  .p-card{background:var(--bg-card);border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.4rem;margin:1rem 0;font-size:.92rem;line-height:1.7;color:var(--ink-soft)}
+  .p-note{font-size:.82rem;color:var(--gold);background:rgba(197,168,107,.08);border-left:2px solid var(--gold);padding:.8rem 1rem;border-radius:6px;margin:1rem 0}
+  @media(max-width:600px){.pmodal-content{padding:2.4rem 1.4rem 1.6rem}.p-title{font-size:1.6rem}}
+
+  /* ---------- MAP ---------- */
+  .map-wrap{position:relative;width:100%;aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:0 12px 40px rgba(0,0,0,.28)}
+  .map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.2) contrast(.96) brightness(.94)}
+  .map-link{position:absolute;right:.9rem;bottom:.9rem;background:var(--bg-deep);color:var(--gold-bright);border:1px solid var(--line);padding:.5rem .9rem;border-radius:30px;font-size:.74rem;letter-spacing:.04em;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:.25s}
+  .map-link:hover{background:var(--gold);color:var(--bg-deep);border-color:var(--gold)}
+
+  footer{background:#0e120b;color:#8a907e;text-align:center;padding:2.4rem 1rem;font-size:.8rem;letter-spacing:.04em}
+  footer .fbrand{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink);margin-bottom:.4rem}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .about .grid,.contact .grid{grid-template-columns:1fr}
+    .about-imgs{max-width:420px;margin:0 auto 3rem}
+    .scards{grid-template-columns:1fr 1fr}
+    .navlinks{position:fixed;inset:0 0 0 30%;background:var(--bg-deep);flex-direction:column;justify-content:center;gap:2rem;transform:translateX(100%);transition:transform .4s;padding:2rem}
+    .navlinks.open{transform:none}
+    .navlinks a{color:var(--white)!important;font-size:1rem}
+    header.nav.scrolled .navlinks a{color:var(--white)!important}
+    .burger{display:flex}
+  }
+  @media(max-width:560px){.scards{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand">Glamelia<span>.</span><small>Pracownia Florystyczna</small></a>
+  <nav class="navlinks" id="navlinks">
+    <a href="#o-nas">O nas</a>
+    <a href="#oferta">Oferta</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#opinie">Opinie</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="tel:+48504017380" class="navphone">504 017 380</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <picture>
+      <source srcset="img/hero.webp" type="image/webp">
+      <img src="img/hero.webp" alt="Bukiet ślubny z obrączkami">
+    </picture>
+  </div>
+  <div class="wrap">
+    <span class="eyebrow">Rogoźnik · Śląsk</span>
+    <h1>Twoja historia, <em>oprawiona kwiatami</em></h1>
+    <p class="lead">Kompleksowa oprawa florystyczna najważniejszych chwil — od bukietu Panny Młodej, przez dekoracje kościoła i sali, po wiązanki okolicznościowe. Każdy projekt powstaje indywidualnie, z dbałością o najmniejszy detal.</p>
+    <div class="btn-row">
+      <a href="#kontakt" class="btn btn-solid">Zapytaj o termin</a>
+      <a href="#galeria" class="btn btn-ghost">Zobacz realizacje</a>
+    </div>
+  </div>
+  <div class="scrollcue">Przewiń</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="o-nas">
+  <div class="wrap grid">
+    <div class="about-imgs reveal">
+      <picture><source srcset="img/slubna-01.webp" type="image/webp"><img class="big" src="img/slubna-01.webp" alt="Dekoracja powitalna z białych róż" loading="lazy"></picture>
+      <picture><source srcset="img/okolicznosciowa-01.webp" type="image/webp"><img class="small" src="img/okolicznosciowa-01.webp" alt="Kompozycja kwiatowa w pudełku" loading="lazy"></picture>
+      <div class="badge"><b>Glamelia</b><small>Florystyka z sercem</small></div>
+    </div>
+    <div class="about-txt reveal">
+      <span class="eyebrow">O pracowni</span>
+      <h2>Glamelia — <em>florystyka z pasji</em></h2>
+      <p>Pracownia Florystyczna Glamelia powstała z pasji do tworzenia wyjątkowych dekoracji i niezapomnianych wspomnień. Naszą specjalnością jest kompleksowa oprawa ślubów i wesel — od bukietów, przez dekoracje ceremonii, po aranżacje sal weselnych, które zachwycają gości i podkreślają wyjątkowy charakter Waszego dnia.</p>
+      <p>Wykonujemy również dekoracje komunijne, okolicznościowe i funeralne oraz efektowne ścianki balonowe na różnego rodzaju uroczystości. Każdy projekt tworzymy indywidualnie, dbając o najdrobniejsze szczegóły, świeżość kwiatów i spójność całej aranżacji.</p>
+      <p>Zaufajcie nam, a stworzymy oprawę, która na długo pozostanie w pamięci Waszej i Waszych gości.</p>
+      <div class="sig">Izabela Masłoń<small>Właścicielka pracowni</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="oferta">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Co tworzymy</span>
+      <h2>Każda okazja <em>zasługuje na kwiaty</em></h2>
+    </div>
+    <div class="scards">
+      <article class="scard reveal"><span class="ico">💍</span><div class="num">01</div><h3>Florystyka ślubna</h3><p>Bukiet Panny Młodej, butonierki, dekoracja kościoła i sali, ścianki i podziękowania — pełna oprawa Waszego dnia.</p></article>
+      <article class="scard reveal"><span class="ico">✝️</span><div class="num">02</div><h3>Florystyka komunijna</h3><p>Dekoracje ołtarza, ławek i stołu komunijnego oraz personalizowane elementy na ten wyjątkowy dzień dziecka.</p></article>
+      <article class="scard reveal"><span class="ico">🎀</span><div class="num">03</div><h3>Florystyka okolicznościowa</h3><p>Kompozycje na urodziny, jubileusze, chrzciny i podziękowania — flowerboxy, kosze kwiatowe i bukiety z dodatkami.</p></article>
+      <article class="scard reveal"><span class="ico">🕯️</span><div class="num">04</div><h3>Florystyka funeralna</h3><p>Wieńce, wiązanki i kompozycje pogrzebowe oraz dekoracje nagrobne przygotowane z należytą powagą i troską.</p></article>
+      <article class="scard reveal"><span class="ico">🎈</span><div class="num">05</div><h3>Dekoracje balonowe</h3><p>Girlandy, łuki i ścianki balonowe oraz numery i napisy podświetlane — efektowna oprawa przyjęć i jubileuszy.</p></article>
+      <article class="scard reveal"><span class="ico">🪑</span><div class="num">06</div><h3>Wypożyczalnia dekoracji</h3><p>Świeczniki, stojaki, ścianki, podtalerze i elementy dekoracyjne do wynajęcia — wszystko, czego potrzeba na przyjęcie.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Realizacje</span>
+      <h2>Galeria <em>naszych prac</em></h2>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="filter active" data-cat="all">Wszystkie</button>
+      <button class="filter" data-cat="slubna">Ślubna</button>
+      <button class="filter" data-cat="komunijna">Komunijna</button>
+      <button class="filter" data-cat="okolicznosciowa">Okolicznościowa</button>
+      <button class="filter" data-cat="funeralna">Funeralna</button>
+      <button class="filter" data-cat="balony">Balonowe</button>
+      <button class="filter" data-cat="wypozyczalnia">Wypożyczalnia</button>
+    </div>
+    <div class="grid-gal" id="grid"></div>
+    <div class="soon" id="soon" style="display:none">
+      <h3>Wkrótce</h3>
+      <p>Zdjęcia realizacji z wypożyczalni dekoracji pojawią się już niebawem. Zapraszamy do kontaktu — chętnie opowiemy o dostępnym asortymencie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONS -->
+<section class="opinions" id="opinie">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Opinie</span>
+      <h2>Co mówią <em>nasi klienci</em></h2>
+    </div>
+    <div class="rating reveal">
+      <div class="rating-score">4,6</div>
+      <div class="rating-meta">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <div class="rating-sub">Średnia ocen Google · 13 opinii</div>
+      </div>
+    </div>
+    <div class="ocards">
+      <article class="ocard reveal">
+        <div class="quote">„</div>
+        <p>Bardzo się cieszę, że trafiliśmy na Panią Izę, która zajęła się dekoracją kościoła w dniu naszego ślubu. Dekoracja była przepiękna, dopracowana oraz w rozsądnej cenie. Polecamy w 100%.</p>
+        <div class="ostars">★★★★★</div>
+        <div class="oauthor">Julia i Maciej<small>Google · opinia</small></div>
+      </article>
+      <article class="ocard reveal">
+        <div class="quote">„</div>
+        <p>Miałam przyjemność skorzystać z usług Pani Izy przy okazji mojego ślubu. Przygotowała dla mnie bukiet, korsaż i butonierki. Oprócz tego przepięknie udekorowała kościół. Wszystko było dokładnie tak, jak sobie wyobrażałam — bez zbędnego przepychu, za to romantycznie i z klasą. Serdecznie polecam!</p>
+        <div class="ostars">★★★★★</div>
+        <div class="oauthor">Wiktoria Z.<small>Google · opinia</small></div>
+      </article>
+      <article class="ocard reveal">
+        <div class="quote">„</div>
+        <p>Serdecznie polecam, świetny kontakt, pełen profesjonalizm, cenowo również świetnie względem innych florystów, a efekt końcowy przeszedł nasze najśmielsze oczekiwania. Dziękujemy!</p>
+        <div class="ostars">★★★★★</div>
+        <div class="oauthor">Michał F.<small>Google · opinia</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <div class="wrap grid">
+    <div class="reveal">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Zaplanujmy <em>Waszą dekorację</em></h2>
+      <p class="intro">Opowiedzcie nam o swojej uroczystości — terminie, miejscu i stylu, o jakim marzycie. Przygotujemy ofertę skrojoną na miarę. Zadzwońcie lub napiszcie, odpowiemy najszybciej, jak to możliwe.</p>
+      <div class="cinfo">
+        <div class="crow"><div class="ic">📍</div><div><div class="lab">Pracownia</div><span>ul. 1 Maja 46, Rogoźnik</span></div></div>
+        <div class="crow"><div class="ic">📞</div><div><div class="lab">Telefon</div><a href="tel:+48504017380">+48 504 017 380</a></div></div>
+        <div class="crow"><div class="ic">✉️</div><div><div class="lab">E-mail</div><a href="mailto:glamelia@op.pl">glamelia@op.pl</a></div></div>
+      </div>
+      <div class="pricing">Realizacje ślubne w przedziale <b>1320–9995 zł</b> w zależności od zakresu oprawy.</div>
+      <div class="social">
+        <a href="https://www.instagram.com/pracowniaflorystycznaglamelia" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@glamelia1" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.facebook.com/share/1JCNvDKJs8/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.weselezklasa.pl/ogloszenia-weselne/pracownia-florystyczna-glamelia,59058/" target="_blank" rel="noopener">Wesele z klasą</a>
+      </div>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe
+        title="Mapa — Pracownia Florystyczna Glamelia, ul. 1 Maja 46, Rogoźnik"
+        src="https://www.google.com/maps?q=Pracownia%20Florystyczna%20Glamelia%2C%20ul.%201%20Maja%2046%2C%2042-582%20Rogo%C5%BAnik&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Pracownia%20Florystyczna%20Glamelia%2C%20ul.%201%20Maja%2046%2C%2042-582%20Rogo%C5%BAnik" target="_blank" rel="noopener">Otwórz w Mapach Google ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand">Glamelia · Pracownia Florystyczna</div>
+  <div>Izabela Masłoń · ul. 1 Maja 46, Rogoźnik · tel. 504 017 380</div>
+  <div style="margin-top:.6rem;opacity:.6">© 2026 Pracownia Florystyczna Glamelia · Wszelkie prawa zastrzeżone</div>
+  <div style="margin-top:.5rem"><a href="#" id="privacy-link" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px">Polityka prywatności</a></div>
+</footer>
+
+<!-- PRIVACY MODAL -->
+<div class="pmodal" id="pmodal" aria-hidden="true">
+  <div class="pmodal-overlay" data-close></div>
+  <div class="pmodal-box" role="dialog" aria-modal="true" aria-label="Polityka prywatności">
+    <button class="pmodal-close" data-close aria-label="Zamknij">×</button>
+    <div class="pmodal-content">
+      <span class="p-eyebrow">Informacje prawne</span>
+      <h2 class="p-title">Polityka prywatności</h2>
+      <p class="p-updated">Data ostatniej aktualizacji: czerwiec 2026</p>
+
+      <p>Niniejsza polityka prywatności opisuje, w jaki sposób przetwarzane są dane osobowe osób korzystających z tej strony oraz kontaktujących się z Pracownią Florystyczną Glamelia. Dane przetwarzamy zgodnie z Rozporządzeniem (UE) 2016/679 (RODO) oraz obowiązującymi przepisami prawa polskiego.</p>
+
+      <h3>1. Administrator danych osobowych</h3>
+      <div class="p-card">
+        <strong>Pracownia Florystyczna Glamelia — Izabela Masłoń</strong><br>
+        ul. 1 Maja 46, 42-582 Rogoźnik (woj. śląskie)<br>
+        NIP: 6292233902<br>
+        Tel.: <a href="tel:+48504017380">+48 504 017 380</a><br>
+        E-mail: <a href="mailto:glamelia@op.pl">glamelia@op.pl</a>
+      </div>
+
+      <h3>2. Jakie dane zbieramy i w jakim celu</h3>
+      <p>Strona ma charakter wizytówki i nie posiada formularzy zapisujących dane w bazie. Dane pozyskujemy wyłącznie, gdy <strong>samodzielnie się z nami kontaktujesz</strong>:</p>
+      <ul>
+        <li><strong>Kontakt telefoniczny</strong> — numer telefonu oraz informacje przekazane w rozmowie.</li>
+        <li><strong>Kontakt e-mailowy</strong> — adres e-mail, imię oraz treść wiadomości.</li>
+      </ul>
+      <p>Dane przetwarzamy w celu udzielenia odpowiedzi, przygotowania oferty oraz — w razie współpracy — realizacji zamówienia.</p>
+
+      <h3>3. Podstawa prawna</h3>
+      <ul>
+        <li>art. 6 ust. 1 lit. b RODO — działania na żądanie przed zawarciem umowy oraz jej wykonanie;</li>
+        <li>art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes (kontakt z klientem);</li>
+        <li>art. 6 ust. 1 lit. c RODO — obowiązki prawne (np. rozliczeniowe), gdy dojdzie do realizacji usługi.</li>
+      </ul>
+
+      <h3>4. Okres przechowywania</h3>
+      <p>Dane przechowujemy przez czas niezbędny do odpowiedzi i realizacji usługi, a następnie przez okres wymagany przepisami (np. dokumentacja księgowa) lub do przedawnienia roszczeń. Korespondencję bez dalszej współpracy usuwamy, gdy przestaje być potrzebna.</p>
+
+      <h3>5. Odbiorcy danych</h3>
+      <p>Dane mogą być powierzone podmiotom wspierającym działalność, w niezbędnym zakresie: dostawcy hostingu, dostawcy poczty e-mail, biuru rachunkowemu (przy realizacji usługi). Nie sprzedajemy ani nie udostępniamy danych w celach marketingowych podmiotom trzecim.</p>
+
+      <h3>6. Pliki cookies i dane techniczne</h3>
+      <p>Strona nie wykorzystuje cookies analitycznych ani marketingowych i nie profiluje użytkowników. Strona korzysta z biblioteki czcionek <strong>Google Fonts</strong>, co może wiązać się z pobraniem czcionek z serwerów Google i przekazaniem adresu IP w zakresie technicznie niezbędnym. Dostawca hostingu może przetwarzać standardowe dane techniczne (np. adres IP) w logach serwera.</p>
+      <div class="p-note">Jeśli w przyszłości dodane zostaną np. Google Analytics, mapa Google, wtyczki social media lub formularz kontaktowy — ten punkt należy rozszerzyć.</div>
+
+      <h3>7. Twoje prawa</h3>
+      <p>Przysługuje Ci prawo do: dostępu do danych i kopii, sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu, przenoszenia danych oraz wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa). Aby skorzystać z praw, napisz na <a href="mailto:glamelia@op.pl">glamelia@op.pl</a> lub zadzwoń.</p>
+
+      <h3>8. Dobrowolność podania danych</h3>
+      <p>Podanie danych jest dobrowolne, lecz niezbędne do udzielenia odpowiedzi i ewentualnej realizacji usługi.</p>
+
+      <h3>9. Zmiany polityki</h3>
+      <p>Polityka może być aktualizowana w razie zmian przepisów lub działania strony. Aktualna wersja jest zawsze dostępna na tej stronie.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="Zamknij">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Poprzednie">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Następne">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+/* ----- gallery data ----- */
+const counts={slubna:13,komunijna:10,okolicznosciowa:12,funeralna:12,balony:5};
+const labels={slubna:"Florystyka ślubna",komunijna:"Florystyka komunijna",okolicznosciowa:"Okolicznościowa",funeralna:"Florystyka funeralna",balony:"Dekoracje balonowe"};
+const items=[];
+Object.keys(counts).forEach(cat=>{
+  for(let i=1;i<=counts[cat];i++){
+    const n=String(i).padStart(2,'0');
+    items.push({cat,file:`img/${cat}-${n}.webp`,label:labels[cat]});
+  }
+});
+const ratios={"img/slubna-01.webp":0.75,"img/slubna-02.webp":0.75,"img/slubna-03.webp":0.5631,"img/slubna-04.webp":1.5,"img/slubna-05.webp":0.5631,"img/slubna-06.webp":0.5631,"img/slubna-07.webp":0.5631,"img/slubna-08.webp":0.5631,"img/slubna-09.webp":0.5631,"img/slubna-10.webp":0.5631,"img/slubna-11.webp":0.75,"img/slubna-12.webp":1.5009,"img/slubna-13.webp":0.5625,"img/komunijna-01.webp":0.75,"img/komunijna-02.webp":1.3333,"img/komunijna-03.webp":1.5009,"img/komunijna-04.webp":0.75,"img/komunijna-05.webp":1.3333,"img/komunijna-06.webp":1.5021,"img/komunijna-07.webp":1.5021,"img/komunijna-08.webp":1.7798,"img/komunijna-09.webp":0.75,"img/komunijna-10.webp":1.4995,"img/okolicznosciowa-01.webp":0.75,"img/okolicznosciowa-02.webp":0.5631,"img/okolicznosciowa-03.webp":0.5631,"img/okolicznosciowa-04.webp":0.5631,"img/okolicznosciowa-05.webp":0.5631,"img/okolicznosciowa-06.webp":0.75,"img/okolicznosciowa-07.webp":0.5625,"img/okolicznosciowa-08.webp":0.5625,"img/okolicznosciowa-09.webp":0.5625,"img/okolicznosciowa-10.webp":0.5625,"img/okolicznosciowa-11.webp":0.5625,"img/okolicznosciowa-12.webp":0.5625,"img/funeralna-01.webp":0.5487,"img/funeralna-02.webp":0.6262,"img/funeralna-03.webp":1.7778,"img/funeralna-04.webp":0.5625,"img/funeralna-05.webp":0.4612,"img/funeralna-06.webp":0.5625,"img/funeralna-07.webp":1.4159,"img/funeralna-08.webp":1.7778,"img/funeralna-09.webp":0.5631,"img/funeralna-10.webp":0.5631,"img/funeralna-11.webp":0.5631,"img/funeralna-12.webp":0.5631,"img/balony-01.webp":0.75,"img/balony-02.webp":0.75,"img/balony-03.webp":0.5631,"img/balony-04.webp":0.75,"img/balony-05.webp":0.4619};
+const grid=document.getElementById('grid');
+items.forEach((it,idx)=>{
+  const d=document.createElement('div');
+  d.className='gitem';d.dataset.cat=it.cat;d.dataset.idx=idx;
+  const ar=ratios[it.file]||0.75;
+  d.innerHTML=`<picture><source srcset="${it.file}" type="image/webp"><img src="${it.file}" alt="${it.label}" loading="lazy" style="aspect-ratio:${ar}"></picture><div class="cap">${it.label}</div>`;
+  grid.appendChild(d);
+});
+
+/* ----- filters ----- */
+const soon=document.getElementById('soon');
+document.getElementById('filters').addEventListener('click',e=>{
+  const b=e.target.closest('.filter');if(!b)return;
+  document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));
+  b.classList.add('active');
+  const cat=b.dataset.cat;
+  if(cat==='wypozyczalnia'){grid.style.display='none';soon.style.display='block';return;}
+  grid.style.display='';soon.style.display='none';
+  document.querySelectorAll('.gitem').forEach(g=>{
+    g.classList.toggle('hide',!(cat==='all'||g.dataset.cat===cat));
+  });
+});
+
+/* ----- lightbox ----- */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount');
+let visible=[],pos=0;
+function refreshVisible(){visible=[...document.querySelectorAll('.gitem')].filter(g=>!g.classList.contains('hide')&&g.offsetParent!==null);}
+function show(i){refreshVisible();if(!visible.length)return;pos=(i+visible.length)%visible.length;
+  const el=visible[pos];const img=el.querySelector('img');
+  lbImg.src=img.src;lbImg.alt=img.alt;lbCount.textContent=`${pos+1} / ${visible.length}`;lb.classList.add('open');}
+grid.addEventListener('click',e=>{const g=e.target.closest('.gitem');if(!g)return;
+  refreshVisible();show(visible.indexOf(g));});
+document.getElementById('lbClose').onclick=()=>lb.classList.remove('open');
+document.getElementById('lbNext').onclick=()=>show(pos+1);
+document.getElementById('lbPrev').onclick=()=>show(pos-1);
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')lb.classList.remove('open');
+  if(e.key==='ArrowRight')show(pos+1);
+  if(e.key==='ArrowLeft')show(pos-1);});
+/* swipe */
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(pos+(dx<0?1:-1));});
+
+/* ----- nav scroll + burger ----- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const burger=document.getElementById('burger'),navlinks=document.getElementById('navlinks');
+burger.onclick=()=>{navlinks.classList.toggle('open');};
+navlinks.querySelectorAll('a').forEach(a=>a.onclick=()=>navlinks.classList.remove('open'));
+
+/* ----- precise anchor scrolling (avoids landing on wrong section due to layout shift) ----- */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    if(!id)return;
+    const target=document.getElementById(id);
+    if(!target)return;
+    e.preventDefault();
+    navlinks.classList.remove('open');
+    const go=()=>{
+      const y=target.getBoundingClientRect().top+window.scrollY-64;
+      window.scrollTo({top:y,behavior:'smooth'});
+    };
+    go();
+    // korekta po ewentualnym doładowaniu obrazków zmieniającym układ
+    setTimeout(go,420);
+  });
+});
+
+/* ----- reveal ----- */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ----- privacy modal ----- */
+const pmodal=document.getElementById('pmodal');
+const plink=document.getElementById('privacy-link');
+function openPrivacy(e){if(e)e.preventDefault();pmodal.classList.add('open');pmodal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';pmodal.querySelector('.pmodal-content').scrollTop=0;}
+function closePrivacy(){pmodal.classList.remove('open');pmodal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+if(plink)plink.addEventListener('click',openPrivacy);
+pmodal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closePrivacy));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pmodal.classList.contains('open'))closePrivacy();});
+
+</script>
+</body>
+</html>
